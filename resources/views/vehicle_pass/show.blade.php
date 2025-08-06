@@ -20,7 +20,12 @@
         <div class="col-md-6">
             <div class="card shadow">
                 <div class="card-header">
-                    <h3 class="card-title">Gate Pass Info</h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="card-title">Gate Pass Info</h3>
+                        @if($vehiclePass->expiry_date && $vehiclePass->expiry_date->isPast())
+                            <span class="badge bg-danger">Expired</span>
+                        @else
+                    </div>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">
