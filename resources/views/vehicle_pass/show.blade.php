@@ -24,7 +24,7 @@
                         <h3 class="card-title">Gate Pass Info</h3>
                         @if($vehiclePass->expiry_date && $vehiclePass->expiry_date->isPast())
                             <span class="badge bg-danger">Expired</span>
-                        @else
+                        @endif
                     </div>
                 </div>
                 <div class="card-body">
