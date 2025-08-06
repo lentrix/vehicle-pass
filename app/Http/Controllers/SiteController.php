@@ -36,9 +36,11 @@ class SiteController extends Controller
         $login = auth()->attempt($creds);
 
         if($login) {
-            return view('dashboard', [
-                'vehicles' => Vehicle::get()
-            ]);
+            $owners = Owner::count();
+            $vehicles = Vehicle::count();
+            $passes = VehiclePass::count();
+
+            return view('dashboard',compact('vehicles','owners','passes'));
         }else {
             return redirect()->back()->withErrors([
                 'login' => 'Invalid credentials provided.'
