@@ -24,6 +24,18 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('system')
         ]);
 
+        User::factory()->create([
+            'name' => 'dayan',
+            'email' => 'dayan@materdeicollege.com',
+            'password' => bcrypt('system')
+        ]);
+
+        User::factory()->create([
+            'name' => 'guard',
+            'email' => 'guard@materdeicollege.com',
+            'password' => bcrypt('system')
+        ]);
+
         Owner::factory(100)->create();
 
         foreach(Owner::get() as $owner) {
