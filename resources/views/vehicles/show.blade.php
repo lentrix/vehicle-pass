@@ -101,7 +101,7 @@
                         <tr>
                             <td>{{ $pass->control_no }}</td>
                             <td class="d-none d-md-table-cell">{{ $pass->school_year }}</td>
-                            <td class="d-none d-md-table-cell">{{ $pass->expiry_date->format('F d, Y') }}</td>
+                            <td class="d-none d-md-table-cell">{{ $pass->expiry_date?->format('F d, Y') }}</td>
                             <td>
                                 @if($pass->expiry_date->isPast())
                                     <span class="badge bg-danger">Expired</span>
