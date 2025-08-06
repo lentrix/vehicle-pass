@@ -10,7 +10,7 @@ class VehicleController extends Controller
 {
     public function index()
     {
-        $vehicles = Vehicle::orderBy('make')->orderBy('model')
+        $vehicles = Vehicle::orderBy('vehicle_make')->orderBy('vehicle_model')
             ->with('owner')
             ->get();
         return view('vehicles.index', ['vehicles'=>$vehicles]);
