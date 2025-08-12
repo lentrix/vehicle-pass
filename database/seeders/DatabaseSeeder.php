@@ -42,18 +42,6 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('system')
         ]);
 
-        Owner::factory(100)->create();
-
-        foreach(Owner::get() as $owner) {
-            Vehicle::factory()->create([
-                'owner_id'=>$owner->id
-            ]);
-        }
-
-        foreach(Vehicle::get() as $vehicle) {
-            VehiclePass::factory()->create(['vehicle_id'=>$vehicle->id]);
-        }
-
 
     }
 }
