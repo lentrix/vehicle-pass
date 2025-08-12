@@ -34,7 +34,9 @@ class VehiclePassController extends Controller
             'expiry_date' => 'nullable|date',
         ]);
 
-        return $this->validateControlNumber($fields['control_no']);
+        if($this->controlNumberExists($fields['control_no'])) {
+            return redirect()->back()->withErrors(['control_no' => 'Control number already used.']);
+        }
 
         $pass = VehiclePass::create($fields);
 
@@ -62,7 +64,9 @@ class VehiclePassController extends Controller
             'expiry_date' => 'nullable|date',
         ]);
 
-        $this->validateControlNumber($fields['control_no']);
+        if($this->controlNumberExists($fields['control_no'])) {
+            return redirect()->back()->withErrors(['control_no' => 'Control number already used.']);
+        }
 
         $vehiclePass->update($fields);
 
@@ -75,11 +79,9 @@ class VehiclePassController extends Controller
         return redirect()->route('vehicle-passes.index')->with('success', 'Vehicle pass deleted successfully.');
     }
 
-    private function validateControlNumber($controlNo)
+    private function controlNumberExists($controlNo)
     {
         // Check if the control number already exists
-        if(VehiclePass::where('control_no', $controlNo)->exists()) {
-            return redirect()->back()->withErrors(['control_no' => 'Control number already used.']);
-        }
+        return (VehiclePass::where('control_no', $controlNo)->exists());
     }
 }
