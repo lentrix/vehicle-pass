@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('vehicle_passes', function (Blueprint $table) {
             $table->id();
-            $table->integer('control_no');
+            $table->integer('control_no')->unique();
             $table->foreignId('vehicle_id')->constrained('vehicles')->onDelete('cascade');
             $table->string('school_year')->nullable();
             $table->date('expiry_date')->nullable();
