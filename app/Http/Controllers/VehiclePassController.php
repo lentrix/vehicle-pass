@@ -64,10 +64,6 @@ class VehiclePassController extends Controller
             'expiry_date' => 'nullable|date',
         ]);
 
-        if($this->controlNumberExists($fields['control_no'])) {
-            return redirect()->back()->withErrors(['control_no' => 'Control number already used.']);
-        }
-
         $vehiclePass->update($fields);
 
         return redirect('/vehicle-passes/' . $vehiclePass->id)->with('success', 'Vehicle pass updated successfully.');
