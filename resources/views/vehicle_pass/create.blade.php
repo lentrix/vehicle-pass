@@ -39,6 +39,15 @@
                     <input type="date" name="expiry_date" id="expiry_date" class="form-control">
                 </div>
 
+                <div class="mb-3">
+                    <label for="type" class="form-label">Type</label>
+                    <select name="type" id="type" class="form-select" required>
+                        <option value="">Select a type</option>
+                        <option value="parking">Parking</option>
+                        <option value="drop and go">Drop and Go</option>
+                    </select>
+                </div>
+
                 <button type="submit" class="btn btn-primary">Create Vehicle Pass</button>
             </form>
         </div>

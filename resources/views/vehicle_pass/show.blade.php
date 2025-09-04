@@ -41,6 +41,10 @@
                             <th>Expiry Date</th>
                             <td>{{ $vehiclePass->expiry_date ? $vehiclePass->expiry_date->format('F d, Y') : 'Perpetual' }}</td>
                         </tr>
+                        <tr>
+                            <th>Type</th>
+                            <td>{{ $vehiclePass->type }}</td>
+                        </tr>
                     </table>
                 </div>
             </div>

@@ -42,6 +42,15 @@
                     <input type="date" name="expiry_date" id="expiry_date" value="{{ old('expiry_date', $vehiclePass->expiry_date?->format('Y-m-d')) }}" class="form-control">
                 </div>
 
+                <div class="mb-3">
+                    <label for="type" class="form-label">Type</label>
+                    <select name="type" id="type" class="form-select" required>
+                        <option value="">Select a type</option>
+                        <option value="parking" {{ old('type', $vehiclePass->type) == 'parking' ? 'selected' : '' }}>Parking</option>
+                        <option value="drop and go" {{ old('type', $vehiclePass->type) == 'drop and go' ? 'selected' : '' }}>Drop and Go</option>
+                    </select>
+                </div>
+
                 <button type="submit" class="btn btn-primary">Update Vehicle Pass</button>
             </form>
         </div>

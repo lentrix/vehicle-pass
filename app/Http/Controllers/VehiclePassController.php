@@ -32,6 +32,7 @@ class VehiclePassController extends Controller
             'control_no' => 'required|string|max:255',
             'school_year' => 'nullable|string|max:255',
             'expiry_date' => 'nullable|date',
+            'type' => 'required|in:parking,drop and go',
         ]);
 
         if($this->controlNumberExists($fields['control_no'])) {
@@ -62,6 +63,7 @@ class VehiclePassController extends Controller
             'control_no' => 'required|string|max:255',
             'school_year' => 'nullable|string|max:255',
             'expiry_date' => 'nullable|date',
+            'type' => 'required|in:parking,drop and go',
         ]);
 
         $vehiclePass->update($fields);
